@@ -1,5 +1,7 @@
 body {
-  font-family: sans-serif;
+  font-family: "TCS Pro Sans", sans-serif;
+  font-size: 16px;
+  color: #333;
 }
 
 ul {
@@ -12,15 +14,20 @@ li {
   align-items: center;
   justify-content: space-between;
   padding: 10px;
+  border-bottom: 1px solid #ccc;
 }
 
 .product-name {
   font-size: 20px;
+  font-weight: bold;
+  color: #2196F3;
 }
 
 .product-price {
   font-size: 16px;
+  color: #FF8B00;
 }
+
 /* Search Bar */
 .search-bar {
   width: 100%;
@@ -29,9 +36,17 @@ li {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 .search-bar:focus {
   outline: none;
   border-color: #2196F3;
+}
+
+.tcs-logo {
+  width: 100px;
+  height: 50px;
+  display: block;
+  margin: 0 auto;
 }
