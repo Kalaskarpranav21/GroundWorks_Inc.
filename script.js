@@ -39,3 +39,30 @@ for (const product of products) {
 
   productList.appendChild(li);
 }
+
+// Get the search bar element.
+const searchBar = document.getElementById("search");
+
+// Create a listener for the search bar's keyup event.
+searchBar.addEventListener("keyup", function() {
+  // Get the search value.
+  const searchValue = searchBar.value;
+
+  // Filter the product list by the search value.
+  const filteredProducts = products.filter(product => product.name.includes(searchValue));
+
+  // Update the product list.
+  productList.innerHTML = "";
+  for (const product of filteredProducts) {
+    const li = document.createElement("li");
+    const productName = document.createElement("span");
+    productName.textContent = product.name;
+    const productPrice = document.createElement("span");
+    productPrice.textContent = `$${product.price}`;
+
+    li.appendChild(productName);
+    li.appendChild(productPrice);
+
+    productList.appendChild(li);
+  }
+});
