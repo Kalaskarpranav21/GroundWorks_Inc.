@@ -66,3 +66,48 @@ searchBar.addEventListener("keyup", function() {
     productList.appendChild(li);
   }
 });
+
+// Create a shopping cart object.
+const shoppingCart = {};
+
+// Add a product to the shopping cart.
+function addToCart(product) {
+  if (!shoppingCart[product.id]) {
+    shoppingCart[product.id] = {
+      product: product,
+      quantity: 1,
+    };
+  } else {
+    shoppingCart[product.id].quantity++;
+  }
+}
+
+// Update the shopping cart total.
+function updateShoppingCartTotal() {
+  let total = 0;
+  for (const product in shoppingCart) {
+    total += shoppingCart[product].product.price * shoppingCart[product].quantity;
+  }
+
+  // Display the shopping cart total.
+  document.querySelector("#shoppingCartTotal").textContent = total;
+}
+
+// Remove a product from the shopping cart.
+function removeFromCart(product) {
+  delete shoppingCart[product.id];
+  updateShoppingCartTotal();
+}
+
+// Checkout the shopping cart.
+function checkoutShoppingCart() {
+  // TODO: Implement checkout functionality.
+}
+
+// Add event listeners to the add to cart buttons.
+document.querySelectorAll(".addToCartButton").forEach(button => {
+  button.addEventListener("click", () => {
+    addToCart(button.dataset.product);
+  });
+});
+
